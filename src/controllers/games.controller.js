@@ -1,7 +1,6 @@
-import connection from '../database/database.js';
+import connection from '../database.js';
 
 async function GetGames(req, res) {
-    const { name } = req.query;
     try {
         const games = await connection.query(
             'SELECT games.id, games.name, games.image, games."stockTotal", games."categoryId", games."pricePerDay", categories.name AS "categoryName" FROM games JOIN categories ON games."categoryId" = categories.id'
@@ -28,7 +27,7 @@ async function AddGames(req, res) {
         res.status(400).send('Categoria inválida ou inexistente');
     }
     try {
-        const inserGames = await connection.query(
+        const insertGames = await connection.query(
             'INSERT INTO games ("name", "image", "stockTotal", "categoryId", "pricePerDay") VALUES ($1, $2, $3, $4, $5)',
             [name, image, stockTotal, categoryId, pricePerDay]
         );
