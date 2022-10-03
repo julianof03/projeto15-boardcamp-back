@@ -12,6 +12,7 @@ function validateCustomerddSchema(req, res, next){
     const validation = CustomerSchema.validate(req.body, { abortEarly: false });
     
     if (validation.error) {
+      console.log(error);
         return res.status(400).send({ message: validation.error.message });
     }
     next();

@@ -1,6 +1,8 @@
+
+
 import { CreateCustomers, GetCustomers,
-         SelectCustomers, SetCustomers
-        } from "../controllers/customers.controller.js";
+        SelectCustomers, SetCustomers
+       } from "../controllers/customers.controller.js";
 import CustomerValidate from "../middlewares/customers.middlewares.js";
 import  express  from "express";
 
